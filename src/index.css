@@ -1,0 +1,369 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gradient-to-br from-[#0A0F1C] via-[#121A2D] to-[#0A0F1C] text-gray-100 overflow-hidden;
+  }
+}
+
+.message-transition {
+  @apply transition-all duration-300 ease-in-out;
+}
+
+.glass-effect {
+  @apply bg-white/[0.03] border border-white/[0.05] shadow-[0_4px_24px_-1px_rgba(0,0,0,0.2)];
+}
+
+.message-bubble {
+  @apply rounded-2xl p-4 transition-all duration-300;
+  color: #f8f6ff;
+  text-shadow: 0 2px 12px rgba(60, 50, 80, 0.18), 0 1px 1px rgba(0,0,0,0.10);
+}
+
+.user-message {
+  @apply bg-gradient-to-br from-blue-200/20 to-purple-200/20 
+         border border-blue-200/20 shadow-[0_4px_24px_-1px_rgba(147,51,234,0.10)];
+  animation: message-glow 3s ease-in-out infinite;
+}
+
+.assistant-message {
+  @apply bg-gradient-to-br from-white/10 to-white/5 
+         border border-white/10 shadow-[0_4px_24px_-1px_rgba(60,50,80,0.10)];
+  animation: message-glow 3s ease-in-out infinite;
+}
+
+.custom-scrollbar {
+  @apply scrollbar-thin scrollbar-track-transparent
+         scrollbar-thumb-white/10 hover:scrollbar-thumb-white/20;
+}
+
+.chat-item {
+  @apply flex items-center space-x-3 px-4 py-3 cursor-pointer rounded-xl transition-all duration-200
+         hover:bg-white/[0.03] border border-transparent hover:border-white/[0.05]
+         hover:shadow-[0_4px_24px_-1px_rgba(0,0,0,0.1)];
+}
+
+.chat-item.active {
+  @apply bg-gradient-to-r from-blue-500/[0.07] to-purple-500/[0.07] border-white/[0.08]
+         shadow-[0_4px_24px_-1px_rgba(59,130,246,0.15)];
+}
+
+.sidebar-button {
+  @apply flex items-center space-x-2 px-4 py-3 w-full rounded-xl
+         transition-all duration-200 bg-gradient-to-r from-blue-500/[0.07] to-purple-500/[0.07]
+         border border-white/[0.05] hover:border-white/[0.1] hover:shadow-[0_4px_24px_-1px_rgba(59,130,246,0.15)]
+         disabled:opacity-50;
+}
+
+.input-glow {
+  @apply focus:shadow-[0_0_20px_rgba(59,130,246,0.3)] focus:border-blue-500/30;
+}
+
+.futuristic-gradient {
+  background: linear-gradient(135deg, 
+    rgba(59,130,246,0.03) 0%,
+    rgba(147,51,234,0.03) 50%,
+    rgba(59,130,246,0.03) 100%
+  );
+  box-shadow: 
+    0 4px 24px -1px rgba(0, 0, 0, 0.2),
+    0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+.header-gradient {
+  background: linear-gradient(
+    90deg,
+    #3b82f6,
+    #8b5cf6,
+    #ec4899,
+    #3b82f6
+  );
+  background-size: 300% 100%;
+  animation: gradient-flow 8s linear infinite;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+}
+
+@keyframes gradient-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.message-icon {
+  @apply shadow-[0_4px_12px_-1px_rgba(59,130,246,0.3)];
+}
+
+.loading-gradient {
+  background: linear-gradient(90deg, 
+    rgba(59,130,246,0) 0%,
+    rgba(59,130,246,0.3) 50%,
+    rgba(59,130,246,0) 100%
+  );
+  background-size: 200% 100%;
+  animation: loading 2s infinite;
+}
+
+@keyframes loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.wave {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+}
+
+.wave-bar {
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(to bottom, #60a5fa, #3b82f6);
+  border-radius: 8px;
+  animation: wave 1s ease-in-out infinite;
+  transform-origin: bottom;
+}
+
+@keyframes wave {
+  0%, 100% {
+    transform: scaleY(0.2);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+
+.wave-bar:nth-child(2n) {
+  animation-delay: 0.1s;
+}
+
+.wave-bar:nth-child(3n) {
+  animation-delay: 0.2s;
+}
+
+.wave-bar:nth-child(4n) {
+  animation-delay: 0.3s;
+}
+
+.wave-bar:nth-child(5n) {
+  animation-delay: 0.4s;
+}
+
+.voice-toggle {
+  @apply relative inline-flex h-6 w-12 items-center rounded-full bg-gradient-to-r from-gray-600/30 to-gray-700/30
+         transition-colors duration-300 focus:outline-none;
+}
+
+.voice-toggle[data-state="checked"] {
+  @apply bg-gradient-to-r from-blue-600 to-blue-700;
+}
+
+.voice-toggle-thumb {
+  @apply pointer-events-none block h-5 w-5 rounded-full bg-white shadow-lg ring-0 
+         transition-transform duration-300 translate-x-0.5 data-[state=checked]:translate-x-6;
+}
+
+/* Speech Recognition Styles */
+.speech-indicator {
+  @apply fixed bottom-24 left-1/2 -translate-x-1/2 px-6 py-3 rounded-full
+         bg-gradient-to-r from-blue-500/20 to-purple-500/20
+         border border-white/10 text-white/80
+         animate-pulse;
+}
+
+.atom-button {
+  @apply px-4 py-2 rounded-xl bg-gradient-to-r from-purple-500/20 to-pink-500/20
+         hover:from-purple-500/30 hover:to-pink-500/30 transition-all duration-300
+         border border-white/10 hover:border-white/20 
+         shadow-[0_4px_12px_-1px_rgba(168,85,247,0.3)]
+         hover:shadow-[0_4px_16px_-1px_rgba(168,85,247,0.4)];
+}
+
+.chat-item .absolute.right-2 {
+  opacity: 1 !important;
+}
+
+.chat-item .absolute.right-2 .text-red-400 {
+  color: #ff4d4f !important;
+  filter: drop-shadow(0 0 4px #fff3);
+}
+
+.chat-item .absolute.right-2:hover {
+  background: rgba(255,77,79,0.15) !important;
+}
+
+.mentii-gradient-animate {
+  background: linear-gradient(
+    90deg,
+    #3b82f6,
+    #8b5cf6,
+    #ec4899,
+    #3b82f6
+  );
+  background-size: 300% 100%;
+  animation: gradient-flow 8s linear infinite;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+}
+
+@keyframes message-glow {
+  0%, 100% {
+    box-shadow: 0 4px 24px -1px rgba(59, 130, 246, 0.1);
+  }
+  50% {
+    box-shadow: 0 4px 24px -1px rgba(147, 51, 234, 0.2);
+  }
+}
+
+/* Music Player Styles */
+.music-toggle {
+  @apply relative inline-flex h-6 w-12 items-center rounded-full bg-gradient-to-r from-gray-600/30 to-gray-700/30
+         transition-colors duration-300 focus:outline-none;
+}
+
+.music-toggle[data-state="checked"] {
+  @apply bg-gradient-to-r from-blue-600 to-blue-700;
+}
+
+.music-toggle-thumb {
+  @apply pointer-events-none block h-5 w-5 rounded-full bg-white shadow-lg ring-0 
+         transition-transform duration-300 translate-x-0.5 data-[state=checked]:translate-x-6;
+}
+
+.music-dropdown {
+  @apply absolute right-0 mt-2 w-72 rounded-xl glass-effect border border-white/10 
+         shadow-lg z-50 backdrop-blur-xl overflow-hidden;
+}
+
+.music-item {
+  @apply w-full px-4 py-3 text-sm text-left hover:bg-white/5 transition-all duration-200
+         flex items-center justify-between space-x-2;
+}
+
+.music-item.active {
+  @apply bg-blue-500/10 text-blue-400;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 1024px) {
+  .glass-effect {
+    @apply bg-white/[0.05] backdrop-blur-xl;
+  }
+
+  .message-bubble {
+    @apply max-w-[85%];
+  }
+
+  .header-gradient {
+    font-size: clamp(1.25rem, 4vw, 1.5rem);
+  }
+
+  .voice-toggle,
+  .music-toggle {
+    @apply h-5 w-10;
+  }
+
+  .voice-toggle-thumb,
+  .music-toggle-thumb {
+    @apply h-4 w-4;
+  }
+
+  .wave {
+    height: 32px;
+  }
+
+  .wave-bar {
+    width: 1.5px;
+  }
+}
+
+/* Ensure dropdowns are properly positioned on mobile */
+@media (max-width: 640px) {
+  .voice-dropdown,
+  .music-dropdown,
+  .mirror-dropdown {
+    @apply fixed right-4 left-4 w-auto;
+  }
+
+  .chat-item {
+    @apply py-2.5;
+  }
+
+  .sidebar-button {
+    @apply py-2.5;
+  }
+}
+
+/* Add smooth transitions for mobile menu */
+.mobile-menu-transition {
+  @apply transition-transform duration-300 ease-in-out;
+}
+
+/* Ensure proper z-index stacking */
+.z-stack {
+  @apply relative z-10;
+}
+
+/* Improve touch targets on mobile */
+@media (max-width: 640px) {
+  button {
+    @apply min-h-[44px] min-w-[44px];
+  }
+
+  .chat-item,
+  .sidebar-button {
+    @apply min-h-[48px];
+  }
+}
+
+/* Adjust spacing for mobile */
+@media (max-width: 640px) {
+  .space-y-6 > * + * {
+    @apply mt-4;
+  }
+
+  .p-4 {
+    @apply p-3;
+  }
+
+  .px-4 {
+    @apply px-3;
+  }
+
+  .py-4 {
+    @apply py-3;
+  }
+}
+
+/* Improve readability on mobile */
+@media (max-width: 640px) {
+  .prose {
+    @apply text-sm;
+  }
+
+  .text-sm {
+    @apply text-xs;
+  }
+}
+
+/* Ensure proper scrolling on mobile */
+@media (max-width: 640px) {
+  .custom-scrollbar {
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
