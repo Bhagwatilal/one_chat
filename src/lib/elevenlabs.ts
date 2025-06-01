@@ -30,7 +30,7 @@ export async function textToSpeech(text: string, voice: Voice): Promise<ArrayBuf
 }
 
 export async function playAudio(audioData: ArrayBuffer) {
-  const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+  const audioContext = new window.AudioContext();
   const audioBuffer = await audioContext.decodeAudioData(audioData);
   const source = audioContext.createBufferSource();
   source.buffer = audioBuffer;

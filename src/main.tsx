@@ -10,6 +10,8 @@ if (script) {
   script.addEventListener('load', initPlayAI);
 }
 
+
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <App />

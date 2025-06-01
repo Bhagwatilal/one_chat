@@ -2,12 +2,12 @@ import { Voice } from './types';
 
 export const voices: Voice[] = [
   {
-    id: "EVvMiXgKZqGMc9aCu4zI", // Amitabh Bachchan style
+    id: "8l89UrPQsmYVJoJRfnAt", // Amitabh Bachchan style
     name: "Bhagwati",
     language: "Hindi/English",
     accent: "Indian",
     gender: "male",
-    preview: "https://elevenlabs.io/convai-widget/index.js"
+    preview: "https://elevenlabs.io/app/voice-library?voiceId=8l89UrPQsmYVJoJRfnAt"
   },
   {
     id: "yoZ06aMxZJJ28mfd3POQ", // Shah Rukh Khan style
