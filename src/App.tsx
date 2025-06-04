@@ -38,7 +38,7 @@ interface Song {
 }
 
 const indianVoiceNames: Record<string, string> = {
-  'hi-IN': 'Bhagwati',
+  'hi-IN': 'AI',
   'hi-IN-2': 'AI',
   'hi-IN-3': 'AI',
   'hi-IN-4': 'AI',
