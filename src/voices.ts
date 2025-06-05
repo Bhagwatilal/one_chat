@@ -3,7 +3,7 @@ import { Voice } from './types';
 export const voices: Voice[] = [
   {
     id: "8l89UrPQsmYVJoJRfnAt", // Amitabh Bachchan style
-    name: "Bhagwati",
+    name: "AI",
     language: "Hindi/English",
     accent: "Indian",
     gender: "male",
