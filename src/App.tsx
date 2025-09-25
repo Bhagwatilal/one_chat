@@ -7,7 +7,7 @@ import { PLAYAI_AGENT_ID, PLAYAI_API_KEY, PLAYAI_USER_ID, switchPersona } from '
 import { SpeechRecognitionService } from './lib/speech';
 import SpaceBackground from './SpaceBackground';
 
-const genAI = new GoogleGenerativeAI('AIzaSyCuynAsF9les34Mj5Pqg0sD3yR9dlOjkCQ');
+const genAI = new GoogleGenerativeAI('AIzaSyDyVGLILLTs0e-9syeW8Y3ScAiv3L3WKVY');
 const speechService = new SpeechRecognitionService();
 
 interface Message {
@@ -247,6 +247,7 @@ export default function App() {
   }, []);
 
   useEffect(() => {
+    document.body.setAttribute('data-theme', theme);
     localStorage.setItem('theme', theme);
   }, [theme]);
 
@@ -445,7 +446,7 @@ export default function App() {
     setIsLoading(true);
 
     try {
-      const model = genAI.getGenerativeModel({ model: "tunedModels/cbt236-s6xu2hp80tx4" });
+      const model = genAI.getGenerativeModel({ model: "models/gemini-2.0-flash" });
       const chat = model.startChat({
         history: currentChat?.messages.map(msg => ({
           role: msg.role === 'user' ? 'user' : 'model',
@@ -599,7 +600,7 @@ export default function App() {
     <>
       <audio ref={audioRef} loop />
       <SpaceBackground theme={theme} />
-      <div className="min-h-screen h-[100dvh] flex bg-gradient-to-br from-[#0A0F1C] via-[#121A2D] to-[#0A0F1C] z-10 relative">
+      <div className={`min-h-screen h-[100dvh] flex relative z-10 ${theme === 'dark' ? 'bg-gradient-to-br from-[#0A0F1C]/80 via-[#121A2D]/80 to-[#0A0F1C]/80' : 'bg-gradient-to-br from-[#d3bed6]/80 via-[#e5d5e8]/80 to-[#d3bed6]/80'}`} >
         {/* Chat Sidebar Toggle Button - Only visible on mobile */}
         <button
           onClick={() => setIsSidebarOpen(!isSidebarOpen)}
@@ -1091,18 +1092,12 @@ export default function App() {
                 {/* Add Theme Toggle Button */}
                 <button
                   onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-                  className="p-2 rounded-xl bg-gradient-to-r from-blue-500/10 to-purple-500/10
-                           hover:from-blue-500/20 hover:to-purple-500/20
-                           border border-white/10 hover:border-white/20
-                           transition-all duration-300
-                           shadow-[0_4px_12px_-1px_rgba(59,130,246,0.2)]
-                           hover:shadow-[0_4px_16px_-1px_rgba(59,130,246,0.3)]"
+                  className="theme-toggle"
+                  data-theme={theme}
+                  aria-label="Toggle theme"
                 >
-                  {theme === 'dark' ? (
-                    <Sun className="w-5 h-5 text-yellow-300" />
-                  ) : (
-                    <Moon className="w-5 h-5 text-gray-700" />
-                  )}
+                  <span className="theme-toggle-thumb" />
+                  {theme === 'dark' ? <Sun className="w-5 h-5 text-yellow-300" /> : <Moon className="w-5 h-5 text-gray-700" />}
                 </button>
               </div>
             </div>
