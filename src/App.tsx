@@ -38,7 +38,7 @@ interface Song {
 }
 
 const indianVoiceNames: Record<string, string> = {
-  'hi-IN': 'Bhagwati',
+  'hi-IN': 'AI',
   'hi-IN-2': 'AI',
   'hi-IN-3': 'AI',
   'hi-IN-4': 'AI',
@@ -1104,7 +1104,7 @@ export default function App() {
           </header>
 
           <div className="flex-1 overflow-hidden relative z-10">
-            <div className="h-full flex flex-col p-2 sm:p-6 pb-20 sm:pb-6">
+            <div className="h-full flex flex-col p-4 sm:p-6">
               <div className="flex-1 rounded-2xl glass-effect futuristic-gradient p-4 sm:p-6 mb-4 sm:mb-6 overflow-y-auto custom-scrollbar">
                 {!currentChat || currentChat.messages.length === 0 ? (
                   <div className="flex flex-col items-center justify-center h-full text-gray-400">
@@ -1192,7 +1192,7 @@ export default function App() {
                 <div ref={messagesEndRef} />
               </div>
 
-              <form onSubmit={handleSubmit} className="fixed bottom-0 left-0 right-0 p-2 sm:p-0 sm:relative bg-[#0A0F1C]/80 sm:bg-transparent backdrop-blur-lg sm:backdrop-blur-none">
+              <form onSubmit={handleSubmit} className="relative">
                 <input
                   type="text"
                   value={input}
@@ -1200,8 +1200,7 @@ export default function App() {
                   placeholder={isListening ? 'Listening...' : 'Type your message...'}
                   className="w-full px-4 sm:px-6 py-3 sm:py-4 rounded-2xl glass-effect border border-white/[0.05] 
                            text-white placeholder-gray-400 focus:outline-none input-glow
-                           transition-all duration-300 text-sm sm:text-base
-                           max-h-[100px] min-h-[50px]"
+                           transition-all duration-300 text-sm sm:text-base"
                 />
                 {interimTranscript && (
                   <div className="absolute left-6 bottom-full mb-2 px-4 py-2 rounded-xl bg-white/[0.05] 

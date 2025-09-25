@@ -17,14 +17,14 @@
 // Define credentials for different personas
 const CREDENTIALS = {
   srk: {
-    apiKey: 'ak-166c63af72164613ab302951fa89ef7f',
-    userId: 'h36PjGMRUYY9FDsiux35gUmiiXR2',
-    agentId: 'u42h-yi4bzdbPg_rrqJyi'
+    apiKey: 'ak-47d4ce20355c48d2a07da8bed1e7466a',
+    userId: '4PndcB9lbPbSpruYOQtGPJ02nfj2',
+    agentId: 'Fx0p1PhKh-EzitmuBV47N'
   },
   ratanTata: {
-    apiKey: 'ak-5ad8e4d13d2e4557b1633057657a6e82', 
-    userId: '5lQ7E5qbiXWCdZ6yw4RhAfP61f82',
-    agentId: 'zFKdgZGfcSrXs6rahx0jW'
+    apiKey: 'ak-845cff8a6a9f493fa174290958355ef5', 
+    userId: 'sfoxXy5QlEaK09yTzZO6lWX0SaN2',
+    agentId: 'G3o2MpyJ2FC7Z7vWzLQNQ'
   }
 };
 
